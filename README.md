@@ -16,8 +16,8 @@ McGill’s emergency call box network has gaps: some call boxes are outdated, ot
 │   ├── solid_line_vertices.csv                 # Main night route vertices
 │   ├── dotted_line_vertices.csv                # Feeder route vertices
 │   ├── exisiting_and_candidate_callbox_coords.csv   # All 123 phone locations
-│   ├── demand_point_coords.csv                 # 98 demand points with weights
-│   └── existing_callbox_current_state.csv      # Phone types & conditions at existing locations
+│   ├── demand_point_coords.csv                 # 98 emergency phone demand points with weights
+│   └── existing_callbox_current_state.csv      # Phone types & conditions at existing locations (Field Observations)
 │
 ├── notebooks/
 │   ├── pdf_map_coord_extraction.ipynb          # Step 1: Data extraction
@@ -34,8 +34,8 @@ Extracts all spatial inputs from the campus PDF map:
 
 - Renders PDF to high-res image (**PyMuPDF**) and detects existing call boxes via **HSV color filtering** + **contour detection**
 - Interactive **OpenCV** interface (`cv2.setMouseCallback`) to trace building outlines and route polylines
-- Generates 100 candidate locations by sampling along building boundaries
-- Samples demand points at 50m intervals along routes using a pixel-to-meter scale calibrated from reference points
+- Generates 100 candidate call box locations by sampling along building boundaries
+- Samples emergency phone demand points at 50m intervals along routes using a pixel-to-meter scale calibrated from reference points
 
 **Outputs:** All CSV files in data/
 
