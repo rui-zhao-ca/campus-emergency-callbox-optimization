@@ -5,7 +5,7 @@
 McGill's existing emergency phone network has gaps: some phones are outdated, others are in poor condition, and overall coverage is insufficient. This project formulates a **facility location problem** that decides which existing phones to upgrade or keep, where to install new phones and what phone type to use at each location while meeting **a minimum coverage threshold** at **minimum cost**.
 
 ## Repository Structure
-
+```
 ├── data/
 │   ├── campus_map.pdf                          # Source map
 │   ├── building_outline_vertices.csv           # Traced campus building boundaries
@@ -21,8 +21,6 @@ McGill's existing emergency phone network has gaps: some phones are outdated, ot
 │
 └── README.md
 ```
-
----
 
 ## Notebooks
 
