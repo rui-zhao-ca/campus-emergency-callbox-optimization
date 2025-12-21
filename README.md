@@ -1,10 +1,12 @@
 # Emergency Call Box Optimization at McGill Downtown Campus
 <img width="5972" height="2956" alt="emergency_callbox_optimization" src="https://github.com/user-attachments/assets/f22b697b-c82e-4726-956f-8876bfa389dc" />
 
+---
 ## Problem Overview
 
 McGill's existing emergency phone network has gaps: some phones are outdated, others are in poor condition, and overall coverage is insufficient. This project formulates a **facility location problem** that decides which existing phones to upgrade or keep, where to install new phones and what phone type to use at each location while meeting **a minimum coverage threshold** at **minimum cost**.
 
+---
 ## Repository Structure
 ```
 ├── data/
@@ -22,7 +24,7 @@ McGill's existing emergency phone network has gaps: some phones are outdated, ot
 │
 └── README.md
 ```
-
+---
 ## Notebooks
 
 ### 1. `pdf_map_coord_extraction.ipynb`
@@ -36,6 +38,7 @@ Extracts all spatial inputs from the campus PDF map:
 
 **Outputs:** All CSV files in data/
 
+---
 ### 2. `callbox_optimization_gurobi.ipynb`
 
 Solves the facility location problem using Gurobi:
