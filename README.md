@@ -2,30 +2,23 @@
 
 ## Problem Overview
 
-McGill's existing emergency phone network has gaps: some phones are outdated, others are in poor condition, and overall coverage is insufficient. This project formulates a **facility location problem** that decides where to install new phones, which existing phones to upgrade or keep, and what phone type to use at each location while meeting **a minimum coverage threshold** at **minimum cost**.
-
----
+McGill's existing emergency phone network has gaps: some phones are outdated, others are in poor condition, and overall coverage is insufficient. This project formulates a **facility location problem** that decides which existing phones to upgrade or keep, where to install new phones and what phone type to use at each location while meeting **a minimum coverage threshold** at **minimum cost**.
 
 ## Repository Structure
 
-```
 ├── data/
-│   ├── campus_map.pdf                          # Source map (McGill night routes)
-│   ├── building_outline_vertices.csv           # Traced building boundaries
+│   ├── campus_map.pdf                          # Source map
+│   ├── building_outline_vertices.csv           # Traced campus building boundaries
 │   ├── solid_line_vertices.csv                 # Main night route vertices
 │   ├── dotted_line_vertices.csv                # Feeder route vertices
 │   ├── exisiting_and_candidate_callbox_coords.csv   # All 123 phone locations
 │   ├── demand_point_coords.csv                 # 98 demand points with weights
-│   └── existing_callbox_current_state.csv      # Phone types & conditions at existing sites
+│   └── existing_callbox_current_state.csv      # Phone types & conditions at existing call boxes
 │
 ├── notebooks/
 │   ├── pdf_map_coord_extraction.ipynb          # Step 1: Data extraction
 │   └── callbox_optimization_gurobi.ipynb       # Step 2: Optimization model
 │
-├── output/
-│   └── emergency_callbox_optimization.png      # Before/after visualization
-│
-├── MGSC_662_Final_Report.docx                  # Full project report
 └── README.md
 ```
 
