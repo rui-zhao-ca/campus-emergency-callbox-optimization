@@ -38,6 +38,7 @@ Extracts all spatial inputs from the campus PDF map:
 - Samples demand points at 50m intervals along routes using a pixel-to-meter scale calibrated from reference points
 
 **Outputs:** All CSV files in data/
+
 **Note:** Requires interactive input (clicking on the map). If you just want to run the optimization, the CSV files are already included
 
 ---
