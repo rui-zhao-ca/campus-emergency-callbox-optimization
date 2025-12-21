@@ -5,7 +5,7 @@
 ---
 ## Problem Overview
 
-McGill's existing emergency phone network has gaps: some phones are outdated, others are in poor condition, and overall coverage is insufficient. This project formulates a **facility location problem** that decides which existing phones to upgrade or keep, where to install new phones and what phone type to use at each location while meeting **a minimum coverage threshold** at **minimum cost**.
+McGill’s emergency call box network has gaps: some call boxes are outdated, others are in poor condition and overall coverage is insufficient. This project formulates a **facility location model** to decide which existing call boxes to keep or replace, where to install new call boxes, and which phone type to deploy at each location, while meeting a minimum coverage threshold at the lowest total cost.
 
 ---
 ## Repository Structure
@@ -17,7 +17,7 @@ McGill's existing emergency phone network has gaps: some phones are outdated, ot
 │   ├── dotted_line_vertices.csv                # Feeder route vertices
 │   ├── exisiting_and_candidate_callbox_coords.csv   # All 123 phone locations
 │   ├── demand_point_coords.csv                 # 98 demand points with weights
-│   └── existing_callbox_current_state.csv      # Phone types & conditions at existing call box locations
+│   └── existing_callbox_current_state.csv      # Phone types & conditions at existing locations
 │
 ├── notebooks/
 │   ├── pdf_map_coord_extraction.ipynb          # Step 1: Data extraction
@@ -34,7 +34,7 @@ Extracts all spatial inputs from the campus PDF map:
 
 - Renders PDF to high-res image (**PyMuPDF**) and detects existing call boxes via **HSV color filtering** + **contour detection**
 - Interactive **OpenCV** interface (`cv2.setMouseCallback`) to trace building outlines and route polylines
-- Generates 100 candidate locations by sampling along building perimeters
+- Generates 100 candidate locations by sampling along building boundaries
 - Samples demand points at 50m intervals along routes using a pixel-to-meter scale calibrated from reference points
 
 **Outputs:** All CSV files in data/
@@ -49,13 +49,13 @@ Solves the facility location problem using Gurobi:
 - Builds **Euclidean distance matrix** from location/demand CSVs
 - Binary decision variables: phone placement (`X`), demand-to-phone coverage (`A`), coverage indicator (`Y`)
 - Minimizes installation costs + condition-based penalties for retaining old phones
-- Fixes initial phone types, links coverage via type-specific radii with a minimum weighted coverage target and restricts upgrades at existing locations
+- Fixes initial phone types, links coverage via type-specific radii with a minimum weighted coverage target and restricts replacement at existing locations
 - Outputs optimal decisions with before/after visualization
 
 ---
 ## Results
 
-The model achieves **61.2% demand point coverage** and **65.1% weighted coverage** at a total cost of **$251,500 CAD**, installing 19 new phones and upgrading 4 existing sites. Detailed results are documented in the `callbox_optimization_gurobi.ipynb`.
+The model achieves **61.2% demand point coverage** and **65.1% weighted coverage** at a total cost of **$251,500 CAD**, installing 15 new phones and replacing 6 existing phones. Detailed results are documented in the `callbox_optimization_gurobi.ipynb`.
 
 ---
 ## Team
