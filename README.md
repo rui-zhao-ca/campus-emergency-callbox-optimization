@@ -5,7 +5,7 @@
 ---
 ## Problem Overview
 
-McGill’s emergency call box network has gaps: some call boxes are outdated, others are in poor condition and overall coverage is insufficient. This project formulates a **facility location model** to decide which existing call boxes to keep or replace, where to install new call boxes, and which phone type to deploy at each location, while meeting a minimum coverage threshold at the lowest total cost.
+McGill’s emergency call box network has gaps: some call boxes are outdated, others are in poor condition and overall coverage is insufficient. This project formulates a **facility location model** to decide which existing call boxes to keep or replace, where to install new call boxes, and which phone type to deploy at each location, while **meeting a minimum coverage threshold** at the **lowest total cost**.
 
 ---
 ## Repository Structure
