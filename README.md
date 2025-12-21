@@ -11,7 +11,7 @@ McGill’s emergency call box network has gaps: some call boxes are outdated, ot
 ## Repository Structure
 ```
 ├── data/
-│   ├── campus_map.pdf                          # Source map
+│   ├── campus_map.pdf                          # Source map (existing call box locations, buildings, and routes)
 │   ├── building_outline_vertices.csv           # Traced campus building boundaries
 │   ├── solid_line_vertices.csv                 # Main night route vertices
 │   ├── dotted_line_vertices.csv                # Feeder route vertices
@@ -33,9 +33,9 @@ McGill’s emergency call box network has gaps: some call boxes are outdated, ot
 Extracts all spatial inputs from the campus PDF map:
 
 - Renders PDF to high-res image (**PyMuPDF**) and detects existing call boxes via **HSV color filtering** + **contour detection**
-- Interactive **OpenCV** interface (`cv2.setMouseCallback`) to trace building outlines and route polylines
+- Builds an interactive **OpenCV** interface (`cv2.setMouseCallback`) to trace building outlines and route polylines
 - Generates 100 candidate call box locations by sampling along building boundaries
-- Samples emergency phone demand points at 50m intervals along routes using a pixel-to-meter scale calibrated from reference points
+- Samples emergency phone demand points at 50m intervals along routes using a pixel-to-meter scale calibrated from reference points, and applies 1.5× weights to main routes versus feeder routes
 
 **Outputs:** All CSV files in data/
 
@@ -49,7 +49,7 @@ Solves the facility location problem using Gurobi:
 - Builds **Euclidean distance matrix** from location/demand CSVs
 - Binary decision variables: phone placement (`X`), coverage assignment (`A`), overall coverage indicator (`Y`)
 - Minimizes installation costs + condition-based penalties for retaining old phones
-- Fixes initial phone types, links coverage via type-specific radii with a minimum weighted coverage target and restricts replacement at existing locations
+- Fixes initial phone types, links coverage via type-specific radii with a minimum 65% weighted coverage target and restricts replacement at existing locations
 - Outputs optimal decisions with before/after visualization
 
 ---
