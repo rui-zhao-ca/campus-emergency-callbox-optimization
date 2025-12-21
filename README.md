@@ -17,7 +17,7 @@ McGill's existing emergency phone network has gaps: some phones are outdated, ot
 │   ├── dotted_line_vertices.csv                # Feeder route vertices
 │   ├── exisiting_and_candidate_callbox_coords.csv   # All 123 phone locations
 │   ├── demand_point_coords.csv                 # 98 demand points with weights
-│   └── existing_callbox_current_state.csv      # Phone types & conditions at existing call box sites
+│   └── existing_callbox_current_state.csv      # Phone types & conditions at existing call box locations
 │
 ├── notebooks/
 │   ├── pdf_map_coord_extraction.ipynb          # Step 1: Data extraction
@@ -48,8 +48,8 @@ Solves the facility location problem using Gurobi:
 
 - Builds **Euclidean distance matrix** from location/demand CSVs
 - Binary decision variables: phone placement (`X`), demand-to-phone coverage (`A`), coverage indicator (`Y`)
-- Minimizes equipment costs + condition-based penalties for retaining old phones
-- Fixes initial phone types, links coverage via type-specific radii with a minimum weighted coverage target and restricts upgrades at existing sites
+- Minimizes installation costs + condition-based penalties for retaining old phones
+- Fixes initial phone types, links coverage via type-specific radii with a minimum weighted coverage target and restricts upgrades at existing locations
 - Outputs optimal decisions with before/after visualization
 
 ---
