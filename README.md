@@ -1,3 +1,4 @@
+---
 # Emergency Call Box Optimization at McGill Downtown Campus
 <img width="5972" height="2956" alt="emergency_callbox_optimization" src="https://github.com/user-attachments/assets/f22b697b-c82e-4726-956f-8876bfa389dc" />
 
@@ -37,6 +38,7 @@ Extracts all spatial inputs from the campus PDF map:
 - Samples demand points at 50m intervals along routes using a pixel-to-meter scale calibrated from reference points
 
 **Outputs:** All CSV files in data/
+**Note:** Requires interactive input (clicking on the map). If you just want to run the optimization, the CSV files are already included
 
 ---
 ### 2. `callbox_optimization_gurobi.ipynb`
@@ -49,23 +51,12 @@ Solves the facility location problem using Gurobi:
 - Fixes initial phone types, links coverage via type-specific radii with a minimum weighted coverage target and restricts upgrades at existing sites
 - Outputs optimal decisions with before/after visualization
 
-## Execution Order
-
-Run the notebooks in sequence—each step depends on outputs from the previous:
-
-| Step | Notebook | Inputs | Outputs |
-|------|----------|--------|---------|
-| 1 | `pdf_map_coord_extraction.ipynb` | `campus_map.pdf` | All CSVs in `data/` |
-| 2 | `callbox_optimization_gurobi.ipynb` | CSVs from step 1 | Optimal solution + visualization |
-
-**Note:** Step 1 requires interactive input (clicking on the map). If you just want to run the optimization, the CSV files are already included.
-
+---
 ## Results
 
-The model achieves **65.3% demand coverage** at a total cost of **$251,500**, installing 19 new phones and upgrading 4 existing locations. Full results and sensitivity analysis are documented in the project report.
+The model achieves **61.2% demand point coverage** and **65.1% weighted coverage** at a total cost of **$251,500 CAD**, installing 19 new phones and upgrading 4 existing sites. Detailed results are documented in the `callbox_optimization_gurobi.ipynb`.
 
 ---
-
 ## Team
 
-Arantzazu Arregui Gonzalez · Chloee Liew · Nicholas Stanfield · Rui Zhao · Serena Sun
+Rui Zhao, Serena Sun, Arantzazu Arregui Gonzalez, Chloee Liew, Nicholas Stanfield
