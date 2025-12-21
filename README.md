@@ -47,7 +47,7 @@ Extracts all spatial inputs from the campus PDF map:
 Solves the facility location problem using Gurobi:
 
 - Builds **Euclidean distance matrix** from location/demand CSVs
-- Binary decision variables: phone placement (`X`), demand-to-phone coverage (`A`), coverage indicator (`Y`)
+- Binary decision variables: phone placement (`X`), coverage assignment (`A`), overall coverage indicator (`Y`)
 - Minimizes installation costs + condition-based penalties for retaining old phones
 - Fixes initial phone types, links coverage via type-specific radii with a minimum weighted coverage target and restricts replacement at existing locations
 - Outputs optimal decisions with before/after visualization
