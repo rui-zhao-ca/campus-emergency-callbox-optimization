@@ -1,4 +1,3 @@
----
 # Emergency Call Box Optimization at McGill Downtown Campus
 <img width="5972" height="2956" alt="emergency_callbox_optimization" src="https://github.com/user-attachments/assets/f22b697b-c82e-4726-956f-8876bfa389dc" />
 
